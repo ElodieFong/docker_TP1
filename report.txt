@@ -1,0 +1,6 @@
+1-1. We can set an environment variable in the container by using the flag -e, which is useful when dealing with sensitive information like passwords. That way, it won't be accessible just by opening a file.
+1-2. If a database is destroyed, all the data will be reset. By attaching a volume to our postgres container, the data won't be lost.
+1-3. build -t elodiefong/db-img .
+     docker run -p "8090:8080" --net=app-network --name=adminer -e POSTGRES_PASSWORD=securepwd -d adminer
+     docker volume create db-data
+1-4.
