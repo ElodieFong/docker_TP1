@@ -4,7 +4,6 @@ on:
   push:
     branches: 
       - main
-      - master
   pull_request:
 
 jobs:
@@ -20,6 +19,7 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
+          cache: maven
 
      #finally build your app with the latest command
       - name: Build and test with Maven
