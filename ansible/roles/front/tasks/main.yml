@@ -1,0 +1,10 @@
+---
+- name: Launch frontend container
+  community.docker.docker_container:
+    name: front
+    image: elodiefong/tp-devops-front:latest
+    pull: true
+    state: started
+    restart_policy: unless-stopped
+    networks:
+      - name: sec-network
