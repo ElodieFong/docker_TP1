@@ -1,0 +1,10 @@
+---
+- name: Create application network
+  community.docker.docker_network:
+    name: app-network
+    state: present
+
+- name: Create second network
+  community.docker.docker_network:
+    name: sec-network
+    state: present

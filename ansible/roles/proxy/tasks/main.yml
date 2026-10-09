@@ -1,0 +1,12 @@
+---
+- name: Launch Apache container
+  community.docker.docker_container:
+    name: httpd
+    image: elodiefong/tp-devops-httpd:latest
+    pull: true
+    state: started
+    restart_policy: unless-stopped
+    published_ports:
+      - "80:80"
+    networks:
+      - name: sec-network

@@ -1,0 +1,11 @@
+- name: Deploy application
+  hosts: prod
+  become: true
+  gather_facts: true
+
+  roles:
+    - docker
+    - network
+    - database
+    - app
+    - proxy
