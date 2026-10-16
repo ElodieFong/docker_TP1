@@ -3,10 +3,10 @@
 1-2. If a database is destroyed, all the data will be reset. By attaching a volume to our postgres container, the data won't be lost.
 
 1-3.  build -t elodiefong/db-img .
-      docker network create app-network
-      docker run -p "8090:8080" --net=app-network --name=adminer -e POSTGRES_PASSWORD=securepwd -d adminer
-      docker run --name=db --net=app-network -d elodiefong/db-img
-      docker volume create db-data
+docker network create app-network
+docker run -p "8090:8080" --net=app-network --name=adminer -e POSTGRES_PASSWORD=securepwd -d adminer
+docker run --name=db --net=app-network -d elodiefong/db-img
+docker volume create db-data
 
 1-4. Multi-stage builds are useful to optimize Dockerfiles while keeping them easy to read and maintain. They separate compilation from execution, reducing the final image size by excluding unnecessary build tools.
 - FROM eclipse-temurin:21-jdk-alpine AS myapp-build: creates the build stage with the JDK.
@@ -23,6 +23,7 @@
 1-5. We need a reverse proxy to isolate the backend infrastructure from the external network for security, high availability, load balancing, and/or centralized authentication.
 
 1-6. docker-compose manages multiple containers through a single YAML file, making it easier to configure, start, stop, and rebuild the entire application.
+
 1-7. docker compose up: Starts services
 docker compose up -d: Starts services in the background
 docker compose up --build: Rebuilds images and starts services
@@ -44,11 +45,11 @@ docker compose stop: Stops services
 - restart: can configure automatic container restarts.
 
 1-9. docker tag docker_tp1-backend:latest elodiefong/tp1-backend:1.0
-     docker tag docker_tp1-database:latest elodiefong/tp1-database:1.0
-     docker tag docker_tp1-httpd:latest elodiefong/tp1-httpd:1.0
-     docker push elodiefong/tp1-backend:1.0
-     docker push elodiefong/tp1-database:1.0
-     docker push elodiefong/tp1-httpd:1.0
+docker tag docker_tp1-database:latest elodiefong/tp1-database:1.0
+docker tag docker_tp1-httpd:latest elodiefong/tp1-httpd:1.0
+docker push elodiefong/tp1-backend:1.0
+docker push elodiefong/tp1-database:1.0
+docker push elodiefong/tp1-httpd:1.0
 
 1-10. Publishing images to Docker Hub allows other developers and machines to download and run them without rebuilding them. It simplifies sharing, deployment, and version management.
 
