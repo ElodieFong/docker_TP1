@@ -25,9 +25,9 @@ jobs:
         working-directory: ./backendAPI/simpleapi
         run: mvn clean verify
       
-#      - name: SonarCloud analysis
-#        working-directory: ./backendAPI/simpleapi
-#        run: mvn -B verify sonar:sonar -Dsonar.projectKey=ElodieFong_docker_TP1 -Dsonar.organization=elodiefong -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+      - name: SonarCloud analysis
+        working-directory: ./backendAPI/simpleapi
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=ElodieFong_docker_TP1 -Dsonar.organization=elodiefong -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
   build-and-push-docker-image:
     name: Build and push Docker images
