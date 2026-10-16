@@ -58,8 +58,8 @@ docker compose stop: Stops services
 
 2-3. needs: test-backend ensures that the Docker image build job only runs after the test-backend job has succeeded. If the tests fail, the Docker images will not be built or published.
 
-2-4. We push docker images to store them and they can be accessed by other machines.
+2-4. We push docker images to store them and they can be accessed by other machines or servers. The application can be deployed without rebuilding the images each time.
 
-3-1,2,3. In the folder ansible.
+3-1,2,3. In the folder ansible. The screenshots of the commands and the outputs can be seen here: https://docs.google.com/document/d/1SnOcGZpv-2mUryC5VJhJXFDURuvcfEKry8sLP3YxiYo/edit?usp=sharing
 
 3-4. Automatically deploying every new image from Docker Hub is not completely safe because an image could contain bugs or security vulnerabilities. To make the deployment more secure, tests should be run before deployment, images should be scanned for vulnerabilities, and version tags should be used instead of only `latest`. Credentials should also be stored securely using GitHub Secrets. Finally, manual approval and a rollback option can help prevent problems in production.
